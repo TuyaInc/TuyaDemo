@@ -85,7 +85,11 @@ public class MqConsumer {
 		do {
 			try {
 				Message message = consumer.receive();
+				Long s = System.currentTimeMillis();
 				messageListener.onMessageArrived(message);
+				if (MqConfigs.DEBUG) {
+					logger.info("business processing cost={}", System.currentTimeMillis() - s);
+				}
 				consumer.acknowledge(message);
 			} catch (Throwable t) {
 				logger.error("error:", t);

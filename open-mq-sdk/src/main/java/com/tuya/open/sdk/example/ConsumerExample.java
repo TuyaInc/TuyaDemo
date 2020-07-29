@@ -4,12 +4,13 @@ package com.tuya.open.sdk.example;
 import com.alibaba.fastjson.JSON;
 import com.tuya.open.sdk.mq.AESBase64Utils;
 
+import com.tuya.open.sdk.mq.MqConfigs;
 import com.tuya.open.sdk.mq.MqConsumer;
 
 public class ConsumerExample {
 
     public static void main(String[] args) throws Exception {
-        String url = "pulsar+ssl://mqe.tuyacn.com:7285/";
+        String url = MqConfigs.CN_SERVER_URL;
         String accessId = "";
         String accessKey = "";
 
